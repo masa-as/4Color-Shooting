@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 1224cf51b1d4d3b48adf90a7a775bf56
+timeCreated: 1502527543
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - GameStartBtn: {fileID: 1897478023906712, guid: 1e5ad76d289b75241a18395fa6ad93bd,
+      type: 2}
+  - starFighterPrefab: {fileID: 1222359547231456, guid: 3736a4cce07a36342be80412fac0f631,
+      type: 2}
+  - GameOverSet: {fileID: 1244349769062940, guid: 4a9ccfef003a477408c0eb37b971b975,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
