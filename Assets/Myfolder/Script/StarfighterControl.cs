@@ -56,7 +56,7 @@ public class StarfighterControl : MonoBehaviour
         }
         */
         intervalTime += Time.deltaTime;
-        if (Input.GetButton("Fire2")){
+        if (Input.GetButton("Fire2")||Input.GetKey("z")){
             if (intervalTime >= 0.1f){
                 intervalTime = 0.0f;
 //                gameObject.color = new Color(0, 0, 0, 1.0f);
