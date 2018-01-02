@@ -7,8 +7,8 @@ using System.Threading;
 public class StarfighterControl : MonoBehaviour
 {
 
-    float X_Speed = 1;
-    float Y_Speed = 1;
+    float X_Speed = 0.5f;
+    float Y_Speed = 0.5f;
 
     public GameObject Prefab;
     public GameObject EnemyObject;
@@ -16,14 +16,18 @@ public class StarfighterControl : MonoBehaviour
     public GameObject maincamera;
     public Text Bbutton;
 
+    int mode_flag = 0;
 
+
+    float time;
     float intervalTime;
     float enemyintervalTime;
 
     // Use this for initialization
     void Start(){
-        intervalTime = 0;
-        enemyintervalTime = 0;
+        time = 0;
+        intervalTime = 0.5f;
+        enemyintervalTime = 0;        
     }
 
     // Update is called once per frame
@@ -55,15 +59,50 @@ public class StarfighterControl : MonoBehaviour
             transform.Translate(horizontal * X_Speed, 0, 0);
         }
         */
-        intervalTime += Time.deltaTime;
-        if (Input.GetButton("Fire2")||Input.GetKey("z")){
-            if (intervalTime >= 0.1f){
-                intervalTime = 0.0f;
-//                gameObject.color = new Color(0, 0, 0, 1.0f);
-//                Debug.Log("aa");
-                Instantiate(Prefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        time += Time.deltaTime;
+
+        if (Input.GetButton("Fire2")||Input.GetKey("z"))
+        {
+            if (time >= intervalTime)
+            {
+                time = 0.0f;
+                if (mode_flag == 0)
+                {
+                    Instantiate(Prefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+                }
+                else if (mode_flag == 1)
+                {
+                    Instantiate(Prefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(0, 10, 0));
+                    Instantiate(Prefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(0, -10, 0));
+                }
+
             }
         }
+
+        if (Input.GetButton("Jump")||Input.GetKeyDown("a"))
+        {
+            if (mode_flag == 0)
+            {
+                intervalTime = 1.0f;
+                mode_flag = 1;
+            }
+            else if (mode_flag == 1)
+            {
+                intervalTime = 0.5f;
+                mode_flag = 0;
+            }
+        }
+        Debug.Log(X_Speed);
+        if (Input.GetButton("Fire1") || Input.GetKey("left shift"))
+        {
+            X_Speed = Y_Speed = 1;
+        }
+        else if (Input.GetButtonUp("Fire1") || Input.GetKeyUp("left shift"))
+        {
+            X_Speed = Y_Speed = 0.5f;
+        }
+        
+        
 
         Quaternion quat = Quaternion.Euler(0, 180, 0);
 

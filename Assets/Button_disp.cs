@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class Button_disp : MonoBehaviour {
 
-    public Text text;
+    public GameObject a;
+    public GameObject b;
+    public GameObject c;
+    public GameObject d;
 
     // Use this for initialization
     void Start () {
@@ -16,11 +19,35 @@ public class Button_disp : MonoBehaviour {
     {
         if (Input.GetButton("Fire2"))
         {
-            text.gameObject.SetActive(true);
+            a.SetActive(true);
         }
-        if (Input.GetButtonUp("Fire2"))
+        else
         {
-            text.gameObject.SetActive(false);
+            a.SetActive(false);
         }
-    }   
+        if (Input.GetButton("Fire3"))
+        {
+            b.SetActive(true);
+        }
+        else
+        {
+            b.SetActive(false);
+        }
+        if (Input.GetButton("Jump"))
+        {
+            c.SetActive(true);
+        }
+        else
+        {
+            c.SetActive(false);
+        }
+        if (Input.GetButton("Fire1"))
+        {
+            d.SetActive(true);
+        }
+        else
+        {
+            d.SetActive(false);
+        }
+    }
 }
