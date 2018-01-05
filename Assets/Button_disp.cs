@@ -17,7 +17,7 @@ public class Button_disp : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire2")||Input.GetKey("z"))
+        if (Input.GetButton("Fire2"))
         {
             a.SetActive(true);
         }
