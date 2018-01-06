@@ -92,7 +92,6 @@ public class StarfighterControl : MonoBehaviour
                 mode_flag = 0;
             }
         }
-        Debug.Log(X_Speed);
         if (Input.GetButton("Fire1") || Input.GetKey("left shift"))
         {
             X_Speed = Y_Speed = 1;
@@ -125,6 +124,8 @@ public class StarfighterControl : MonoBehaviour
             Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             maincamera.SetActive(true);
             Destroy(this.gameObject);
+            //処理を遅らせたい
+            Debug.Log("a");
             SceneManager.LoadScene("gameover");
             //            GameObject.Find("Main Camera").GetComponent<GameControl>().gameFlag = false;
         }

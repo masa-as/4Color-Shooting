@@ -39,6 +39,10 @@ public class EnemyControl : MonoBehaviour
             Destroy(this.gameObject);
             FindObjectOfType<ScoreScript>().AddPoint(point);
         }
-        
+        //if (coll.gameObject.tag == "Shield")
+        //{
+        //    Destroy(this.gameObject);
+        //    Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        //}
     }
 }
