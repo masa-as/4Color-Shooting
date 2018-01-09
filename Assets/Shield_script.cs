@@ -30,7 +30,7 @@ public class Shield_script : MonoBehaviour {
         num++;
         Destroy(other.gameObject);
         Debug.Log("b");
-        if (num == 1)
+        if (num == 3)
         {
             Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             Destroy(this);
