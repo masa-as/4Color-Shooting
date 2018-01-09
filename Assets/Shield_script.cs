@@ -31,15 +31,7 @@ public class Shield_script : MonoBehaviour {
         Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         Destroy(other.gameObject);
         Debug.Log("b");
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (num == 3)
-=======
-        if (num == 5)
->>>>>>> 8f300bd366f950dfe8b504bd01ce20c440c56563
-=======
-        if (num == 1)
->>>>>>> parent of 9e1a4b6... shield編集
         {
             Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             Destroy(this);
