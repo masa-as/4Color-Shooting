@@ -28,9 +28,10 @@ public class Shield_script : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         num++;
+        Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         Destroy(other.gameObject);
         Debug.Log("b");
-        if (num == 1)
+        if (num == 5)
         {
             Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             Destroy(this);
