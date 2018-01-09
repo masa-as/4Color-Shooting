@@ -24,7 +24,7 @@ public class EnemyControl : MonoBehaviour
         Quaternion quat = Quaternion.Euler(0, 180, 0);
 
         intervalTime += Time.deltaTime;
-        if (intervalTime >= 1.0f)
+        if (intervalTime >= 2.0f)
         {
             intervalTime = 0.0f;
             Instantiate(EnemyBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), quat);
