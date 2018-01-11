@@ -13,10 +13,9 @@ public class StarfighterControl : MonoBehaviour
     public GameObject Prefab;
     public GameObject EnemyObject;
     public GameObject Explosion;
-    public GameObject maincamera;
-    public Text Bbutton;
 
     int mode_flag = 0;
+    int life = 3;
 
 
     float time;
@@ -121,13 +120,17 @@ public class StarfighterControl : MonoBehaviour
     }
     void OnTriggerEnter(Collider coll) {
         if(coll.gameObject.tag == "EnemyBullet"){
-            Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-            maincamera.SetActive(true);
-            Destroy(this.gameObject);
-            //処理を遅らせたい
-            Debug.Log("a");
-            SceneManager.LoadScene("gameover");
-            //            GameObject.Find("Main Camera").GetComponent<GameControl>().gameFlag = false;
+            life--;
+            Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z+5), Quaternion.identity);
+            StartCoroutine(ChangeScene("gameover"));
         }
+    }
+    IEnumerator ChangeScene(string scene)
+    {
+        GetComponent<MeshCollider>().enabled = false;
+        yield return new WaitForSeconds(1);
+        GetComponent<MeshCollider>().enabled = true;
+        if (life == 0)
+        SceneManager.LoadScene(scene);        
     }
 }

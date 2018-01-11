@@ -36,7 +36,6 @@ public class Shield_script : MonoBehaviour {
             Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             Destroy(this);
             Destroy(this.gameObject);
-
         }
     }
 }
