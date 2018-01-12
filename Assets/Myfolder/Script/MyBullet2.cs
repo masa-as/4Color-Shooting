@@ -2,7 +2,7 @@
 
 using System.Collections;
 
-public class MyBullet : MonoBehaviour
+public class MyBullet2 : MonoBehaviour
 {
 
     float bulletSpeed = 2;

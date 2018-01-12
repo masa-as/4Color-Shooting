@@ -2,9 +2,8 @@
 
 using System.Collections;
 
-public class MyBullet : MonoBehaviour
+public class MyBullet4 : MonoBehaviour
 {
-
     float bulletSpeed = 2;
     public GameObject scoreGUI;
     public GameObject EnemyBullet;
@@ -13,7 +12,7 @@ public class MyBullet : MonoBehaviour
     void Start()
     {
         Destroy(this.gameObject, 5);
-        EnemyBullet.GetComponent<Renderer>().material.color = new Color32(78, 255, 120, 1);
+        EnemyBullet.GetComponent<Renderer>().material.color = new Color32(153, 227, 255, 1);
     }
     // Update is called once per frame
     void Update()

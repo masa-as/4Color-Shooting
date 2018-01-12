@@ -9,71 +9,71 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1755106304674688}
+  m_RootGameObject: {fileID: 1173002980868366}
   m_IsPrefabParent: 1
---- !u!1 &1755106304674688
+--- !u!1 &1173002980868366
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4603198985023570}
-  - component: {fileID: 198790895757497744}
-  - component: {fileID: 199036565367027180}
-  - component: {fileID: 65221395065445444}
-  - component: {fileID: 114306402137911892}
+  - component: {fileID: 4410622881953376}
+  - component: {fileID: 198221183073855990}
+  - component: {fileID: 199428417974861078}
+  - component: {fileID: 65068665934290506}
+  - component: {fileID: 114322879910337122}
   m_Layer: 0
-  m_Name: Torch
+  m_Name: Torch 3
   m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4603198985023570
+--- !u!4 &4410622881953376
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1755106304674688}
+  m_GameObject: {fileID: 1173002980868366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.34, y: 9.4, z: 8.31}
+  m_LocalPosition: {x: 4.34, y: 9.4, z: 160.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &65221395065445444
+--- !u!65 &65068665934290506
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1755106304674688}
+  m_GameObject: {fileID: 1173002980868366}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 8}
   m_Center: {x: 0, y: 0, z: 2}
---- !u!114 &114306402137911892
+--- !u!114 &114322879910337122
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1755106304674688}
+  m_GameObject: {fileID: 1173002980868366}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d78728d2e7b439940a4a9316dbf0e506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scoreGUI: {fileID: 0}
-  EnemyBullet: {fileID: 1755106304674688}
---- !u!198 &198790895757497744
+  EnemyBullet: {fileID: 1173002980868366}
+--- !u!198 &198221183073855990
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1755106304674688}
+  m_GameObject: {fileID: 1173002980868366}
   serializedVersion: 5
   lengthInSec: 1
   simulationSpeed: 1
@@ -123,7 +123,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -456146752
+  randomSeed: -826664356
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -267,7 +267,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 0, b: 0.84827566, a: 1}
     startSize:
       minMaxState: 3
       scalar: 1.25
@@ -3036,13 +3036,13 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
---- !u!199 &199036565367027180
+--- !u!199 &199428417974861078
 ParticleSystemRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1755106304674688}
+  m_GameObject: {fileID: 1173002980868366}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1

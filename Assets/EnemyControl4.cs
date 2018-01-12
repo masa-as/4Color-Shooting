@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyControl : MonoBehaviour
+public class EnemyControl4 : MonoBehaviour
 {
     public GameObject EnemyBullet;
     public GameObject Explosion;
@@ -14,7 +14,7 @@ public class EnemyControl : MonoBehaviour
     void Start()
     {
         intervalTime = 0;
-        EnemyObject.GetComponent<Renderer>().material.color = new Color32(254, 97, 82, 1);
+        EnemyObject.GetComponent<Renderer>().material.color = new Color32(234, 150, 255, 1);
         Destroy(this.gameObject, 8);
     }
 
@@ -35,7 +35,7 @@ public class EnemyControl : MonoBehaviour
     }
     void OnTriggerEnter(Collider coll)
     {
-        if(coll.gameObject.tag == "PlayerBullet")
+        if (coll.gameObject.tag == "PlayerBullet")
         {
             Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             Destroy(this.gameObject);

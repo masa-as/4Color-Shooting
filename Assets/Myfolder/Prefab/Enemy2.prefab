@@ -9,47 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1056287906393410}
+  m_RootGameObject: {fileID: 1558342591788048}
   m_IsPrefabParent: 1
---- !u!1 &1056287906393410
+--- !u!1 &1558342591788048
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4768261076831402}
-  - component: {fileID: 33631118856687870}
-  - component: {fileID: 23885987679872658}
-  - component: {fileID: 114424446384667694}
-  - component: {fileID: 64655939271765886}
-  - component: {fileID: 54451144488181314}
+  - component: {fileID: 4054722172814084}
+  - component: {fileID: 33826478342927940}
+  - component: {fileID: 23664738624627776}
+  - component: {fileID: 64210172940835634}
+  - component: {fileID: 54166950272795742}
+  - component: {fileID: 114341123584888710}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4768261076831402
+--- !u!4 &4054722172814084
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1056287906393410}
+  m_GameObject: {fileID: 1558342591788048}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 9.3, y: 1, z: 60.5}
+  m_LocalPosition: {x: -9.7, y: 1, z: 60.5}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!23 &23885987679872658
+--- !u!23 &23664738624627776
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1056287906393410}
+  m_GameObject: {fileID: 1558342591788048}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -76,19 +76,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33631118856687870
+--- !u!33 &33826478342927940
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1056287906393410}
+  m_GameObject: {fileID: 1558342591788048}
   m_Mesh: {fileID: 4300000, guid: d8cf9ba52095a4f4bb35e68774cfa634, type: 3}
---- !u!54 &54451144488181314
+--- !u!54 &54166950272795742
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1056287906393410}
+  m_GameObject: {fileID: 1558342591788048}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -98,12 +98,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64655939271765886
+--- !u!64 &64210172940835634
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1056287906393410}
+  m_GameObject: {fileID: 1558342591788048}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -112,18 +112,18 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: d8cf9ba52095a4f4bb35e68774cfa634, type: 3}
---- !u!114 &114424446384667694
+--- !u!114 &114341123584888710
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1056287906393410}
+  m_GameObject: {fileID: 1558342591788048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bedb6a4af6d51b54eac5ded85eb11ea1, type: 3}
+  m_Script: {fileID: 11500000, guid: fed1d31d5eb14da459aa11623417ce48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyBullet: {fileID: 100000, guid: ad9a58f01295f4cb08c52ad8a6ce4b24, type: 2}
-  Explosion: {fileID: 1527576160438584, guid: e025bd867ff4a8947be0c9d943f571da, type: 2}
-  EnemyObject: {fileID: 1056287906393410}
+  Explosion: {fileID: 100000, guid: d33904b3aaa63498c9be5ef9d2e80a6b, type: 2}
+  EnemyObject: {fileID: 1558342591788048}
   point: 1
