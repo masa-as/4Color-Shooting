@@ -7,8 +7,8 @@ using System.Threading;
 public class StarfighterControl : MonoBehaviour
 {
 
-    float X_Speed = 0.5f;
-    float Y_Speed = 0.5f;
+    float X_Speed = 1.0f;
+    float Y_Speed = 1.0f;
 
     public GameObject EnemyBullet;
     public GameObject EnemyBullet2;
@@ -21,7 +21,7 @@ public class StarfighterControl : MonoBehaviour
     public GameObject Explosion;
     public Quaternion quat = Quaternion.Euler(0, 180, 0);
 
-    int mode_flag = 0;
+    //int mode_flag = 0;
     int life = 3;
 
     float time;

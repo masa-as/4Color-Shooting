@@ -9,6 +9,7 @@ public class EnemyControl3 : MonoBehaviour
     float Z_Speed = 0.7f;
     float intervalTime;
     public int point = 1;
+    float threshold3 = EnemyControl.getThreshold();
 
     // Use this for initialization
     void Start()
@@ -26,7 +27,7 @@ public class EnemyControl3 : MonoBehaviour
         Quaternion quat = Quaternion.Euler(0, 180, 0);
 
         intervalTime += Time.deltaTime;
-        if (intervalTime >= 2.0f)
+        if (intervalTime >= threshold3)
         {
             intervalTime = 0.0f;
             Instantiate(EnemyBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), quat);

@@ -6,9 +6,15 @@ public class EnemyControl : MonoBehaviour
     public GameObject EnemyBullet;
     public GameObject Explosion;
     public GameObject EnemyObject;
+    public static float threshold = 1.0f;
     float Z_Speed = 0.7f;
     float intervalTime;
     public int point = 1;
+
+    public static float getThreshold()
+    {
+        return threshold;
+    }
 
     // Use this for initialization
     void Start()
@@ -26,7 +32,7 @@ public class EnemyControl : MonoBehaviour
         Quaternion quat = Quaternion.Euler(0, 180, 0);
 
         intervalTime += Time.deltaTime;
-        if (intervalTime >= 2.0f)
+        if (intervalTime >= threshold)
         {
             intervalTime = 0.0f;
             Instantiate(EnemyBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), quat);
@@ -35,7 +41,7 @@ public class EnemyControl : MonoBehaviour
     }
     void OnTriggerEnter(Collider coll)
     {
-        if(coll.gameObject.tag == "PlayerBullet")
+        if (coll.gameObject.tag == "PlayerBullet")
         {
             Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             Destroy(this.gameObject);
