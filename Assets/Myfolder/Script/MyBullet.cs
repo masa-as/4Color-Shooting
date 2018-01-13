@@ -12,7 +12,7 @@ public class MyBullet : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Destroy(this.gameObject, 5);
+        Destroy(this.gameObject, 1.5f);
         EnemyBullet.GetComponent<Renderer>().material.color = new Color32(78, 255, 120, 1);
     }
     // Update is called once per frame
@@ -23,6 +23,6 @@ public class MyBullet : MonoBehaviour
     private void OnTriggerEnter(Collider coll)
     {
         if(coll.gameObject.tag == "Enemy")
-        Destroy(this.gameObject);
+            Destroy(this.gameObject);
     }
 }

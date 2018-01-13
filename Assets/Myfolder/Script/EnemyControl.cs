@@ -10,6 +10,7 @@ public class EnemyControl : MonoBehaviour
     float Z_Speed = 0.7f;
     float intervalTime;
     public int point = 1;
+    Quaternion quat = Quaternion.Euler(0, 180, 0);
 
     public static float getThreshold()
     {
@@ -20,7 +21,7 @@ public class EnemyControl : MonoBehaviour
     void Start()
     {
         intervalTime = 0;
-        EnemyObject.GetComponent<Renderer>().material.color = new Color32(254, 97, 82, 1);
+        Instantiate(EnemyBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), quat);
         Destroy(this.gameObject, 8);
     }
 
@@ -29,7 +30,6 @@ public class EnemyControl : MonoBehaviour
     {
         transform.Translate(0, 0, 1 * Z_Speed);
 
-        Quaternion quat = Quaternion.Euler(0, 180, 0);
 
         intervalTime += Time.deltaTime;
         if (intervalTime >= threshold)
@@ -47,10 +47,5 @@ public class EnemyControl : MonoBehaviour
             Destroy(this.gameObject);
             FindObjectOfType<ScoreScript>().AddPoint(point);
         }
-        //if (coll.gameObject.tag == "Shield")
-        //{
-        //    Destroy(this.gameObject);
-        //    Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        //}
     }
 }
