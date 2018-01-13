@@ -57,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: bba05005762c76347968196d82759de1, type: 2}
+  - {fileID: 2100000, guid: 78affc15954d5024990721f582142a9c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -74,7 +74,6 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33830461605754652
 MeshFilter:
@@ -125,5 +124,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyBullet: {fileID: 100000, guid: ad9a58f01295f4cb08c52ad8a6ce4b24, type: 2}
   Explosion: {fileID: 1527576160438584, guid: e025bd867ff4a8947be0c9d943f571da, type: 2}
-  EnemyObject: {fileID: 1415724791518984}
   point: 1

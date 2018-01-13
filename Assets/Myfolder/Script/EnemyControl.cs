@@ -5,7 +5,6 @@ public class EnemyControl : MonoBehaviour
 {
     public GameObject EnemyBullet;
     public GameObject Explosion;
-    public GameObject EnemyObject;
     public static float threshold = 1.0f;
     float Z_Speed = 0.7f;
     float intervalTime;

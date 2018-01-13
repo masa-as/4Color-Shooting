@@ -48,11 +48,22 @@ public class StarfighterControl : MonoBehaviour
 
         time += Time.deltaTime;
 
-        if (Input.GetButton("Fire2") || Input.GetKey("z"))
+        if (time >= intervalTime)
         {
-            if (time >= intervalTime)
+            time = 0.0f;
+
+
+            if (Input.GetButton("Fire1") || Input.GetKey("left shift"))
             {
-                time = 0.0f;
+                //X_Speed = Y_Speed = 1;
+                Instantiate(EnemyBullet4, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            }
+            //else if (Input.GetButtonUp("Fire1") || Input.GetKeyUp("left shift"))
+            //{
+            //    X_Speed = Y_Speed = 0.5f;
+            //}
+            if (Input.GetButton("Fire2") || Input.GetKey("z"))
+            {
                 //if (mode_flag == 0)
                 //{
                 //    Instantiate(Prefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
@@ -63,78 +74,66 @@ public class StarfighterControl : MonoBehaviour
                 //    Instantiate(Prefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(0, -10, 0));
                 //}
                 Instantiate(EnemyBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-
-
+            }
+            if (Input.GetButton("Fire3"))
+            {
+                Instantiate(EnemyBullet2, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            }
+            if (Input.GetButton("Jump") || Input.GetKeyDown("a"))
+            {
+                //if (mode_flag == 0)
+                //{
+                //    intervalTime = 1.0f;
+                //    mode_flag = 1;
+                //}
+                //else if (mode_flag == 1)
+                //{
+                //    intervalTime = 0.5f;
+                //    mode_flag = 0;
+                //}
+                Instantiate(EnemyBullet3, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             }
         }
 
-        if (Input.GetButton("Jump") || Input.GetKeyDown("a"))
-        {
-            //if (mode_flag == 0)
-            //{
-            //    intervalTime = 1.0f;
-            //    mode_flag = 1;
-            //}
-            //else if (mode_flag == 1)
-            //{
-            //    intervalTime = 0.5f;
-            //    mode_flag = 0;
-            //}
-            Instantiate(EnemyBullet2, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        }
-        if (Input.GetButton("Fire1") || Input.GetKey("left shift"))
-        {
-            //X_Speed = Y_Speed = 1;
-            Instantiate(EnemyBullet3, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        }
-        //else if (Input.GetButtonUp("Fire1") || Input.GetKeyUp("left shift"))
-        //{
-        //    X_Speed = Y_Speed = 0.5f;
-        //}
-        if (Input.GetButton("Fire3"))
-        {
-            Instantiate(EnemyBullet4, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        }
-
         enemyintervalTime += Time.deltaTime;
-        if (enemyintervalTime >= 1.0f)
+            if (enemyintervalTime >= 1.0f)
+            {
+                enemyintervalTime = 0;
+                int rnd = Random.Range(1, 5);
+                if (rnd == 1)
+                    Instantiate(EnemyObject, new Vector3(Random.Range(-35.0f, 35.0f), transform.position.y, transform.position.z + 200), quat);
+                if (rnd == 2)
+                    Instantiate(EnemyObject2, new Vector3(Random.Range(-35.0f, 35.0f), transform.position.y, transform.position.z + 200), quat);
+                if (rnd == 3)
+                    Instantiate(EnemyObject3, new Vector3(Random.Range(-35.0f, 35.0f), transform.position.y, transform.position.z + 200), quat);
+                if (rnd == 4)
+                    Instantiate(EnemyObject4, new Vector3(Random.Range(-35.0f, 35.0f), transform.position.y, transform.position.z + 200), quat);
+            }
+
+            Vector3 pos = transform.position;
+
+            pos.x = Mathf.Clamp(transform.position.x, -35, 35);
+            pos.y = Mathf.Clamp(transform.position.y, -15, 15);
+
+            transform.position = pos;
+
+        }
+        void OnTriggerEnter(Collider coll)
         {
-            enemyintervalTime = 0;
-            int rnd = Random.Range(1, 5);
-            if (rnd == 1)
-                Instantiate(EnemyObject, new Vector3(Random.Range(-35.0f, 35.0f), transform.position.y, transform.position.z + 200), quat);
-            if (rnd == 2)
-                Instantiate(EnemyObject2, new Vector3(Random.Range(-35.0f, 35.0f), transform.position.y, transform.position.z + 200), quat);
-            if (rnd == 3)
-                Instantiate(EnemyObject3, new Vector3(Random.Range(-35.0f, 35.0f), transform.position.y, transform.position.z + 200), quat);
-            if (rnd == 4)
-                Instantiate(EnemyObject4, new Vector3(Random.Range(-35.0f, 35.0f), transform.position.y, transform.position.z + 200), quat);
+            if (coll.gameObject.tag == "EnemyBullet")
+            {
+                life--;
+                Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z + 5), Quaternion.identity);
+                StartCoroutine(ChangeScene("gameover"));
+            }
         }
 
-        Vector3 pos = transform.position;
-
-        pos.x = Mathf.Clamp(transform.position.x, -35, 35);
-        pos.y = Mathf.Clamp(transform.position.y, -15, 15);
-
-        transform.position = pos;
-
-    }
-    void OnTriggerEnter(Collider coll)
-    {
-        if (coll.gameObject.tag == "EnemyBullet")
+        IEnumerator ChangeScene(string scene)
         {
-            life--;
-            Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z + 5), Quaternion.identity);
-            StartCoroutine(ChangeScene("gameover"));
+            GetComponent<MeshCollider>().enabled = false;
+            yield return new WaitForSeconds(1);
+            GetComponent<MeshCollider>().enabled = true;
+            if (life == 0)
+                SceneManager.LoadScene(scene);
         }
     }
-
-    IEnumerator ChangeScene(string scene)
-    {
-        GetComponent<MeshCollider>().enabled = false;
-        yield return new WaitForSeconds(1);
-        GetComponent<MeshCollider>().enabled = true;
-        if (life == 0)
-            SceneManager.LoadScene(scene);
-    }
-}
