@@ -13,7 +13,6 @@ public class MyBullet : MonoBehaviour
     void Start()
     {
         Destroy(this.gameObject, 1.5f);
-        EnemyBullet.GetComponent<Renderer>().material.color = new Color32(78, 255, 120, 1);
     }
     // Update is called once per frame
     void Update()

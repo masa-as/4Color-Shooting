@@ -5,8 +5,6 @@ public class EnemyControl2 : MonoBehaviour
 {
     public GameObject EnemyBullet;
     public GameObject Explosion;
-    public GameObject EnemyObject;
-    public EnemyControl enemyControl;
     float Z_Speed = 0.7f;
     float intervalTime;
     public int point = 1;
@@ -16,7 +14,6 @@ public class EnemyControl2 : MonoBehaviour
     void Start()
     {
         intervalTime = 0;
-        EnemyObject.GetComponent<Renderer>().material.color = new Color32(78, 255, 120, 1);
         Destroy(this.gameObject, 8);
     }
 
@@ -37,16 +34,11 @@ public class EnemyControl2 : MonoBehaviour
     }
     void OnTriggerEnter(Collider coll)
     {
-        if (coll.gameObject.tag == "PlayerBullet")
+        if (coll.gameObject.tag == "PlayerBullet2")
         {
             Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             Destroy(this.gameObject);
             FindObjectOfType<ScoreScript>().AddPoint(point);
         }
-        //if (coll.gameObject.tag == "Shield")
-        //{
-        //    Destroy(this.gameObject);
-        //    Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        //}
     }
 }

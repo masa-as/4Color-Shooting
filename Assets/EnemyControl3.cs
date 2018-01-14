@@ -5,17 +5,15 @@ public class EnemyControl3 : MonoBehaviour
 {
     public GameObject EnemyBullet;
     public GameObject Explosion;
-    public GameObject EnemyObject;
     float Z_Speed = 0.7f;
     float intervalTime;
     public int point = 1;
-    float threshold3 = EnemyControl.getThreshold();
+    float threshold2 = EnemyControl.getThreshold();
 
     // Use this for initialization
     void Start()
     {
         intervalTime = 0;
-        EnemyObject.GetComponent<Renderer>().material.color = new Color32(153, 227, 255, 1);
         Destroy(this.gameObject, 8);
     }
 
@@ -27,7 +25,7 @@ public class EnemyControl3 : MonoBehaviour
         Quaternion quat = Quaternion.Euler(0, 180, 0);
 
         intervalTime += Time.deltaTime;
-        if (intervalTime >= threshold3)
+        if (intervalTime >= threshold2)
         {
             intervalTime = 0.0f;
             Instantiate(EnemyBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), quat);
@@ -36,16 +34,11 @@ public class EnemyControl3 : MonoBehaviour
     }
     void OnTriggerEnter(Collider coll)
     {
-        if (coll.gameObject.tag == "PlayerBullet")
+        if (coll.gameObject.tag == "PlayerBullet3")
         {
             Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             Destroy(this.gameObject);
             FindObjectOfType<ScoreScript>().AddPoint(point);
         }
-        //if (coll.gameObject.tag == "Shield")
-        //{
-        //    Destroy(this.gameObject);
-        //    Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        //}
     }
 }

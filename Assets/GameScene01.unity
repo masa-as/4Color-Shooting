@@ -4080,7 +4080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyBullet: {fileID: 1082286088830170, guid: 83859e934bad1a84b9d923d0eae85f98,
     type: 2}
-  EnemyBullet2: {fileID: 1908356868742842, guid: 7c8f2f8c409581548ae0ffef2e0fa362,
+  EnemyBullet2: {fileID: 1537054430928428, guid: 2ec3ae7bdaff5c541a9237538c5d0270,
     type: 2}
   EnemyBullet3: {fileID: 1173002980868366, guid: f485dd389bddca34e8abf6cbfdf7caa7,
     type: 2}
