@@ -1,21 +1,30 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ScoreScript : MonoBehaviour
 {
 
-    public static int score = 0;
+    public static int score = 30;
 
     void Start()
     {
-        //初期スコア(0点)を表示
-        GetComponent<Text>().text = "Score: " + score.ToString();
+        GetComponent<Text>().text = "残り: " + score.ToString();
     }
-    //ballScriptからSendMessageで呼ばれるスコア加算用メソッド
     public void AddPoint(int point)
     {
-        score = score + point;
-        GetComponent<Text>().text = "Score: " + score.ToString();
+        score = score - point;
+        GetComponent<Text>().text = "残り: " + score.ToString()+" 体";
+        if (score <= 0)
+        {
+            StartCoroutine("GameOver");
+        }
     }
+    IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("gameover");
+    }
+
 }

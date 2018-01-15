@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114350204007489246}
   m_Layer: 0
   m_Name: Torch 2
-  m_TagString: PlayerBullet
+  m_TagString: PlayerBullet2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

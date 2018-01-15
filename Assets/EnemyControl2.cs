@@ -9,7 +9,7 @@ public class EnemyControl2 : MonoBehaviour
     float intervalTime;
     public int point = 1;
     float threshold2 = EnemyControl.getThreshold();
-
+    
     // Use this for initialization
     void Start()
     {
@@ -40,5 +40,10 @@ public class EnemyControl2 : MonoBehaviour
             Destroy(this.gameObject);
             FindObjectOfType<ScoreScript>().AddPoint(point);
         }
+        else if (coll.gameObject.tag == "PlayerBullet" || coll.gameObject.tag == "PlayerBullet3" || coll.gameObject.tag == "PlayerBullet4")
+        {
+            EnemyControl.miss++;
+        }
+
     }
 }

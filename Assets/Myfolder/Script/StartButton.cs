@@ -8,7 +8,7 @@ public class StartButton : MonoBehaviour
     {
         if (Input.GetButton("Fire2")||Input.GetKey("x"))
         {
-            ScoreScript.score = 0;
+            ScoreScript.score = 30;
             SceneManager.LoadScene("GameScene01");
         }
     }

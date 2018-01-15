@@ -22,7 +22,6 @@ public class StarfighterControl : MonoBehaviour
     public Quaternion quat = Quaternion.Euler(0, 180, 0);
 
     //int mode_flag = 0;
-    int life = 3;
 
     float time;
     float intervalTime;
@@ -125,18 +124,16 @@ public class StarfighterControl : MonoBehaviour
     {
         if (coll.gameObject.tag == "EnemyBullet")
         {
-            life--;
             Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z + 5), Quaternion.identity);
-            StartCoroutine(ChangeScene("gameover"));
+            StartCoroutine(ChangeScene());
         }
     }
 
-    IEnumerator ChangeScene(string scene)
+    IEnumerator ChangeScene()
     {
+        time = -1.0f;
         GetComponent<MeshCollider>().enabled = false;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         GetComponent<MeshCollider>().enabled = true;
-        if (life == 0)
-            SceneManager.LoadScene(scene);
     }
 }

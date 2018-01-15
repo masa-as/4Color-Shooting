@@ -10,6 +10,7 @@ public class EnemyControl : MonoBehaviour
     float intervalTime;
     public int point = 1;
     Quaternion quat = Quaternion.Euler(0, 180, 0);
+    public static int miss = 0;
 
     public static float getThreshold()
     {
@@ -45,6 +46,10 @@ public class EnemyControl : MonoBehaviour
             Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             Destroy(this.gameObject);
             FindObjectOfType<ScoreScript>().AddPoint(point);
+        }
+        else if(coll.gameObject.tag == "PlayerBullet2"|| coll.gameObject.tag == "PlayerBullet3"|| coll.gameObject.tag == "PlayerBullet4")
+        {
+            miss++;
         }
     }
 }

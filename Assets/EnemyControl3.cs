@@ -40,5 +40,10 @@ public class EnemyControl3 : MonoBehaviour
             Destroy(this.gameObject);
             FindObjectOfType<ScoreScript>().AddPoint(point);
         }
+        else if (coll.gameObject.tag == "PlayerBullet2" || coll.gameObject.tag == "PlayerBullet" || coll.gameObject.tag == "PlayerBullet4")
+        {
+            EnemyControl.miss++;
+        }
+
     }
 }
