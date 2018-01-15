@@ -6,7 +6,7 @@ public class RestartButton : MonoBehaviour
 {
     private void Update()
     {
-        if (Input.GetButtonDown("Fire3"))//ボタン変更
+        if (Input.GetButtonDown("Start"))
         {
             ScoreScript.score = 30;
             EnemyControl.miss = 0;
@@ -15,10 +15,4 @@ public class RestartButton : MonoBehaviour
         }
 
     }
-
-    //public void ToMain()
-    //{
-    //    ScoreScript.score = 30;
-    //    SceneManager.LoadScene("GameScene01");
-    //}
 }

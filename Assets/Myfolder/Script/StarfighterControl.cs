@@ -19,6 +19,7 @@ public class StarfighterControl : MonoBehaviour
     public GameObject EnemyObject3;
     public GameObject EnemyObject4;
     public GameObject Explosion;
+    public GameObject Myself;
     public Quaternion quat = Quaternion.Euler(0, 180, 0);
 
     //int mode_flag = 0;
@@ -133,7 +134,12 @@ public class StarfighterControl : MonoBehaviour
     {
         time = -1.0f;
         GetComponent<MeshCollider>().enabled = false;
+        Color alpha = new Color(0, 0, 0, 0.5f);
+        //renderer.material.color.a = alpha;
+        //GetComponent<Renderer>().material.color.a++;
+        //GetComponent<Renderer>().material.color = Color.red;
         yield return new WaitForSeconds(2);
-        GetComponent<MeshCollider>().enabled = true;
+        alpha = new Color(0, 0, 0, 1.0f);
+        ////GetComponent<MeshCollider>().enabled = true;
     }
 }

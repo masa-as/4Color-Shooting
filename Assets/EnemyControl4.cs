@@ -9,11 +9,13 @@ public class EnemyControl4 : MonoBehaviour
     float intervalTime;
     public int point = 1;
     float threshold2 = EnemyControl.getThreshold();
+    Quaternion quat = Quaternion.Euler(0, 180, 0);
 
     // Use this for initialization
     void Start()
     {
         intervalTime = 0;
+        Instantiate(EnemyBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), quat);
         Destroy(this.gameObject, 8);
     }
 
@@ -22,7 +24,6 @@ public class EnemyControl4 : MonoBehaviour
     {
         transform.Translate(0, 0, 1 * Z_Speed);
 
-        Quaternion quat = Quaternion.Euler(0, 180, 0);
 
         intervalTime += Time.deltaTime;
         if (intervalTime >= threshold2)
