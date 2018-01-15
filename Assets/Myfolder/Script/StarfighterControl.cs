@@ -101,7 +101,7 @@ public class StarfighterControl : MonoBehaviour
         if (enemyintervalTime >= 1.0f)
         {
             enemyintervalTime = 0;
-            int rnd = Random.Range(0, 5);
+            int rnd = Random.Range(1, 5);
 
             if (rnd == 1)
                 Instantiate(EnemyObject, new Vector3(Random.Range(-35.0f, 35.0f), transform.position.y, transform.position.z + 200), quat);
