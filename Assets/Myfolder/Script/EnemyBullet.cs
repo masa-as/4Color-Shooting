@@ -21,10 +21,5 @@ public class EnemyBullet : MonoBehaviour
     {
         if (coll.gameObject.tag == "Player")
             Destroy(this.gameObject);
-        //if (coll.gameObject.tag == "Shield")
-        //{
-        //    Destroy(this.gameObject);
-        //    Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        //}
     }
 }

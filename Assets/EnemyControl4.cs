@@ -15,7 +15,7 @@ public class EnemyControl4 : MonoBehaviour
     void Start()
     {
         intervalTime = 0;
-        Instantiate(EnemyBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), quat);
+        //Instantiate(EnemyBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), quat);
         Destroy(this.gameObject, 8);
     }
 

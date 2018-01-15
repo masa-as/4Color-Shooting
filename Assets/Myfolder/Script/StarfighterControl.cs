@@ -7,8 +7,8 @@ using System.Threading;
 public class StarfighterControl : MonoBehaviour
 {
 
-    float X_Speed = 1.0f;
-    float Y_Speed = 1.0f;
+    float X_Speed = 0.7f;
+    float Y_Speed = 0.7f;
 
     public GameObject EnemyBullet;
     public GameObject EnemyBullet2;
@@ -21,7 +21,8 @@ public class StarfighterControl : MonoBehaviour
     public GameObject Explosion;
     public GameObject Myself;
     public Quaternion quat = Quaternion.Euler(0, 180, 0);
-
+    public GameObject red_curtain;
+    public static int hit = 0;
     //int mode_flag = 0;
 
     float time;
@@ -123,8 +124,9 @@ public class StarfighterControl : MonoBehaviour
     }
     void OnTriggerEnter(Collider coll)
     {
-        if (coll.gameObject.tag == "EnemyBullet")
+        if (coll.gameObject.tag == "EnemyBullet"|| coll.gameObject.tag == "Enemy")
         {
+            hit++;
             Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z + 5), Quaternion.identity);
             StartCoroutine(ChangeScene());
         }
@@ -132,14 +134,10 @@ public class StarfighterControl : MonoBehaviour
 
     IEnumerator ChangeScene()
     {
-        time = -1.0f;
+        red_curtain.SetActive(true);
         GetComponent<MeshCollider>().enabled = false;
-        Color alpha = new Color(0, 0, 0, 0.5f);
-        //renderer.material.color.a = alpha;
-        //GetComponent<Renderer>().material.color.a++;
-        //GetComponent<Renderer>().material.color = Color.red;
         yield return new WaitForSeconds(2);
-        alpha = new Color(0, 0, 0, 1.0f);
-        ////GetComponent<MeshCollider>().enabled = true;
+        red_curtain.SetActive(false);
+        GetComponent<MeshCollider>().enabled = true;
     }
 }

@@ -11,6 +11,7 @@ public class RestartButton : MonoBehaviour
             ScoreScript.score = 30;
             EnemyControl.miss = 0;
             TimeScript.time = 0;
+            StarfighterControl.hit = 0;
             SceneManager.LoadScene("GameScene01");
         }
 
