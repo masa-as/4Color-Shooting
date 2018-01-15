@@ -10,7 +10,7 @@ public class ResultHit : MonoBehaviour
     void Start()
     {
         int resultHit = StarfighterControl.hit;
-        GetComponent<Text>().text = "Miss Shot: " + resultHit.ToString() + " 回";
+        GetComponent<Text>().text = "hit: " + resultHit.ToString() + " 回";
     }
 
     // Update is called once per frame

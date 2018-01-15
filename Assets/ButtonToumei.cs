@@ -39,7 +39,6 @@ public class ButtonToumei : MonoBehaviour {
         else
         {
             batu.GetComponent<Image>().color = Color.white;
-
         }
         if (Input.GetButton("Jump"))
         {
