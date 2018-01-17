@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ScoreScript : MonoBehaviour
 {
 
-    public static int score = 30;
+    public static int score = 20;
 
     void Start()
     {

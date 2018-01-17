@@ -8,7 +8,7 @@ public class RestartButton : MonoBehaviour
     {
         if (Input.GetButtonDown("Start"))
         {
-            ScoreScript.score = 30;
+            ScoreScript.score = 20;
             EnemyControl.miss = 0;
             TimeScript.time = 0;
             StarfighterControl.hit = 0;
