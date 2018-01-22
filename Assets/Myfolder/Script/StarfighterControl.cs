@@ -135,9 +135,10 @@ public class StarfighterControl : MonoBehaviour
     IEnumerator ChangeScene()
     {
         red_curtain.SetActive(true);
-        GetComponent<MeshCollider>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
+        time = -1;
         yield return new WaitForSeconds(2);
         red_curtain.SetActive(false);
-        GetComponent<MeshCollider>().enabled = true;
+        GetComponent<BoxCollider>().enabled = true;
     }
 }
