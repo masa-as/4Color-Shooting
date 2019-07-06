@@ -5,7 +5,8 @@ using UnityEngine;
 public class ExplosionControl : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
         Destroy(this.gameObject, 3);		
 	}	
 }

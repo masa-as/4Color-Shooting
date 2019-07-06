@@ -14,6 +14,5 @@ public class RestartButton : MonoBehaviour
             StarfighterControl.hit = 0;
             SceneManager.LoadScene("GameScene01");
         }
-
     }
 }

@@ -11,8 +11,7 @@ public class GameControl : MonoBehaviour {
     public bool gameFlag;
 	// Use this for initialization
 	void Start () {
-        gameFlag = true;
-		
+        gameFlag = true;	
 	}
 	
 	// Update is called once per frame
@@ -20,8 +19,7 @@ public class GameControl : MonoBehaviour {
         if (gameFlag == false) {
             SceneManager.LoadScene("gameover");
 //            GameOverSet.SetActive(true);
-        }
-		
+        }	
 	}
 
     public void GameStartButton() {
@@ -32,6 +30,4 @@ public class GameControl : MonoBehaviour {
     public void GameOverButton() {
         SceneManager.LoadScene("GameScene01");
     }
-
-
 }
