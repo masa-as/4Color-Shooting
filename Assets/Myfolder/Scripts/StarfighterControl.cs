@@ -10,19 +10,19 @@ public class StarfighterControl : MonoBehaviour
     float X_Speed = 0.7f;
     float Y_Speed = 0.7f;
 
-    public GameObject EnemyBullet;
-    public GameObject EnemyBullet2;
-    public GameObject EnemyBullet3;
-    public GameObject EnemyBullet4;
+    public GameObject MyBullet;
+    public GameObject MyBullet2;
+    public GameObject MyBullet3;
+    public GameObject MyBullet4;
     public GameObject EnemyObject;
     public GameObject EnemyObject2;
     public GameObject EnemyObject3;
     public GameObject EnemyObject4;
     public GameObject Explosion;
     public GameObject Myself;
-    public Quaternion quat = Quaternion.Euler(0, 180, 0);
     public GameObject red_curtain;
     public static int hit = 0;
+    private Quaternion quat = Quaternion.Euler(0, 180, 0);
     //int mode_flag = 0;
 
     float time;
@@ -38,7 +38,7 @@ public class StarfighterControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
@@ -54,7 +54,7 @@ public class StarfighterControl : MonoBehaviour
             if (Input.GetButton("Fire1"))
             {
                 //X_Speed = Y_Speed = 1;
-                Instantiate(EnemyBullet4, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+                Instantiate(MyBullet4, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
                 time = 0.0f;
             }
             //else if (Input.GetButtonUp("Fire1") || Input.GetKeyUp("left shift"))
@@ -72,12 +72,12 @@ public class StarfighterControl : MonoBehaviour
                 //    Instantiate(Prefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(0, 10, 0));
                 //    Instantiate(Prefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(0, -10, 0));
                 //}
-                Instantiate(EnemyBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+                Instantiate(MyBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
                 time = 0.0f;
             }
             if (Input.GetButton("Fire3"))
             {
-                Instantiate(EnemyBullet2, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+                Instantiate(MyBullet2, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
                 time = 0.0f;
             }
             if (Input.GetButton("Jump"))
@@ -92,7 +92,7 @@ public class StarfighterControl : MonoBehaviour
                 //    intervalTime = 0.5f;
                 //    mode_flag = 0;
                 //}
-                Instantiate(EnemyBullet3, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+                Instantiate(MyBullet3, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
                 time = 0.0f;
             }
         }
@@ -128,16 +128,16 @@ public class StarfighterControl : MonoBehaviour
         {
             hit++;
             Instantiate(Explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z + 5), Quaternion.identity);
-            StartCoroutine(ChangeScene());
+            StartCoroutine(Hidan());
         }
     }
 
-    IEnumerator ChangeScene()
+    IEnumerator Hidan()
     {
         red_curtain.SetActive(true);
         GetComponent<BoxCollider>().enabled = false;
         time = -1;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
         red_curtain.SetActive(false);
         GetComponent<BoxCollider>().enabled = true;
     }

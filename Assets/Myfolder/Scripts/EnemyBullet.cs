@@ -2,26 +2,26 @@
 
 using System.Collections;
 
-public class MyBullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
 
     float bulletSpeed = 2;
-    public GameObject scoreGUI;
-    public GameObject EnemyBullet;
-
+    public GameObject Explosion;
     // Use this for initialization
     void Start()
     {
-        Destroy(this.gameObject, 1.5f);
+        Destroy(this.gameObject, 3);
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(0, 0, bulletSpeed);
     }
     private void OnTriggerEnter(Collider coll)
     {
-        if(coll.gameObject.tag == "Enemy")
+        if (coll.gameObject.tag == "Player")
+        {
             Destroy(this.gameObject);
+        }
     }
 }

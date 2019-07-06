@@ -2,8 +2,9 @@
 
 using System.Collections;
 
-public class MyBullet4 : MonoBehaviour
+public class MyBullet : MonoBehaviour
 {
+
     float bulletSpeed = 2;
     public GameObject scoreGUI;
     public GameObject EnemyBullet;
@@ -11,8 +12,7 @@ public class MyBullet4 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Destroy(this.gameObject, 5);
-        EnemyBullet.GetComponent<Renderer>().material.color = new Color32(153, 227, 255, 1);
+        Destroy(this.gameObject, 1.5f);
     }
     // Update is called once per frame
     void Update()
@@ -22,6 +22,8 @@ public class MyBullet4 : MonoBehaviour
     private void OnTriggerEnter(Collider coll)
     {
         if(coll.gameObject.tag == "Enemy")
-        Destroy(this.gameObject);
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

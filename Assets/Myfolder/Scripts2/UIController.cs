@@ -6,7 +6,7 @@ public class UIController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        transform.SetParent(GameObject.Find("Camera (eye)").transform);
+//        transform.SetParent(GameObject.Find("Camera (eye)").transform);
         transform.localPosition = new Vector3(0, 0, 5);
         transform.rotation = Quaternion.identity;        
     }
